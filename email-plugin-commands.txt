@@ -1,0 +1,28 @@
+A)Jenkins side:
+-------------
+1- install "mailer" plugin in jenkins
+2- in jenkins> manage jenkins > 'configure system' > scroll down in the page till "E-mail Notification" section.
+3- then add your email server configuration, in my case i will use gmail account for testing:
+SMTP server: smtp.gmail.com
+Use SMTP Authentication : check this option
+User Name : <your gmail account>
+Password : <your gmail account password>
+Use SSL : check this option
+SMTP Port : 465
+4- click save
+
+
+
+
+B) in your gmail side:
+----------------------
+1- Login to your gmail account through the web browser
+2- Go to https://www.google.com/settings/security/lesssecureapps and Turn On this feature.
+3- Go to https://accounts.google.com/DisplayUnlockCaptcha and click Continue.
+
+
+
+c) in Jenkins job:
+-------------------
+1- open the jenkins maven job > click on "configure" option to configure the job.
+2- click on "add post-build-action" then add the email in the recipients textbox and check the below two options. 
