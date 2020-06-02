@@ -1,15 +1,4 @@
-a) Script to clean old containers:
-----------------------------------
-echo ">>>>>>>>> Start Clearing old containers "
-if docker ps -a | grep "khalednoh*" | awk '{print $1}' | xargs docker rm -f; then
-    printf 'Clearing old containers done succeeded\n'
-else
-    printf 'Clearing old containers failed\n'
-fi
-
-
-
-b) Script to clean old images:
+a) Script to clean old images:
 ------------------------------
 echo ">>>>>>>>> Start Clearing old docker images"
 if docker images -a | grep "khalednoh*" | awk '{print $1":"$2}' | xargs docker rmi -f; then
@@ -20,9 +9,21 @@ fi
 
 
 
-c) Script to run container of last created build:
+b) Script to run container of last created build:
 -------------------------------------------------
 echo ">>> start running container of last created Image"
 docker run -d -p 9090:9090 --name=demo1-0.0.1-SNAPSHOT$BUILD_NUMBER khalednoh/demo1:demo1-0.0.1-SNAPSHOT$BUILD_NUMBER
 echo ">>> start running container of last created Image"
+
+
+
+c) Script to clean old containers:
+----------------------------------
+echo ">>>>>>>>> Start Clearing old containers "
+if docker ps -a | grep "khalednoh*" | awk '{print $1}' | xargs docker rm -f; then
+    printf 'Clearing old containers done succeeded\n'
+else
+    printf 'Clearing old containers failed\n'
+fi
+
 
