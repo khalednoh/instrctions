@@ -1,6 +1,7 @@
 e) in jenkins UI portal:
 -----------------------
-open jenkins dashboard > manage jenkins > manage plugins > install plugins "Docker" "Docker API" "Docker build steps"
+open jenkins dashboard > manage jenkins > manage plugins > install the following plugins 
+"Docker", "Docker API", "Docker build steps", "CloudBees Docker Build and Publish plugin" and "Docker Commons Plugin"
 
 
 b)In jenkins machine, run the below Install Docker engine <https://docs.docker.com/engine/install/ubuntu/>:
