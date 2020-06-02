@@ -1,0 +1,56 @@
+e) in jenkins UI portal:
+-----------------------
+open jenkins dashboard > manage jenkins > manage plugins > install plugins "Docker" "Docker API" "Docker build steps"
+
+
+b)In jenkins machine, run the below Install Docker engine <https://docs.docker.com/engine/install/ubuntu/>:
+------------------------------------------------------------------------------------------------------------
+sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88
+
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo docker run hello-world
+
+
+
+c) In jenkins machine, Manage Docker as a non-root user:
+--------------------------------------------------------
+sudo groupadd docker	                // Add the docker group if it doesn't already exist
+sudo gpasswd -a jenkins docker     	// Add the connected user jenkins to the docker group.
+newgrp docker
+docker run hello-world	                // to check if you can run docker without sudo
+systemctl restart docker	        // restart the docker daemon to get things working
+sudo chmod 666 /var/run/docker.sock	// that is the key
+
+
+
+d) supporting commands to manage jenkins user:
+----------------------------------------------
+getent passwd	                       // To get a list of all Linux user
+less /etc/passwd	               // Get a List of All Users using the /etc/passwd File
+getent passwd | grep jenkins	       // list details of specific user ex: jenkins
+sudo passwd jenkins	               // set the password for user jenkins
+
+
+e) stop asking the password for sudo:
+-------------------------------------
+sudo visudo                            // run this command
+jenkins ALL=(ALL) NOPASSWD: ALL        // at the end of the file add this line then click ctrl+x
