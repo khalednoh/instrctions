@@ -26,7 +26,5 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> finished building new docker im
 
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start running container of last created Image >>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-docker run -d -p 9090:9090 --name=demo1-0.0.1-SNAPSHOT$BUILD_NUMBER khalednoh/demo1:demo1-0.0.1-SNAPSHOT$BUILD_NUMBER
+docker run -d -p 8090:8090 --name=demo1-0.0.1-SNAPSHOT$BUILD_NUMBER khalednoh/demo1:demo1-0.0.1-SNAPSHOT$BUILD_NUMBER
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> finished running container of last created Image >>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
-
