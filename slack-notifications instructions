@@ -1,0 +1,8 @@
+A)Jenkins side:
+-------------
+1- install "slack notification" plugin in jenkins
+In jenkins> manage jenkins > manage plugins > select 'available' tab > search by 'slack notification' and select the plugin then click install.
+
+2- in pipeline > synatx > select "slack send: send slack message" and then provide all the required parameters.
+
+3- after "Genarate the code", paste it in your pipeline.
